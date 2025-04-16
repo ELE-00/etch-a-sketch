@@ -1,0 +1,43 @@
+
+/* styles.css */
+
+.mainContainer{
+ /* border: 2px solid black; */
+ display: flex;
+ flex-direction: column;
+ background-color: pink;
+ height: auto;
+ width: auto;
+ align-items: center;
+}
+
+.buttonContainer{
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+   }
+
+.button{
+    height: 30px;
+    width: 100px;
+}
+
+.gridContainer{
+    border: 2px solid black;
+    display: flex;
+    /* background-color: beige; */
+    height: auto;
+    width: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+   }
+
+.gridBox{
+    border: 2px solid red;
+    background-color: rgb(113, 113, 113);
+    height: 100px;
+    width: 100px;
+
+}

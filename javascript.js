@@ -1,14 +1,3 @@
-
-//Task
-//1. Create 16x16 grid 
-//2. "hover" effect - divs should change color when the mouse enters and leaves a div
-//3. Create a button that will send a popup aksing for the number of squares for the new grid. Old grid disapears, new shows up.
-//Bonus: Transform the behavior of a square when interacting with the mouse by introducing a series of modifications.
-    //1. Rather than squares being the same color throughout the grid, randomize the squares’ RGB values with each interaction.
-    //2. Additionally, implement a progressive darkening effect where each interaction darkens the square by 10%. The goal is to achieve a fully black (or completely colored) square in only ten interactions.
-
-
-
 //Main container of the page
 const mainContainer = document.querySelector(".mainContainer");
 
@@ -58,7 +47,8 @@ function createGrid(userInput){
     const gridBoxes = document.querySelectorAll(".gridBox");
     gridBoxes.forEach(box => {
         box.addEventListener("mouseover", () => {
-            box.style.backgroundColor = "blue";
+            box.style.backgroundColor = rgbColor();
+
         });
     });
 
@@ -75,8 +65,14 @@ function deleteGrid(){
 const gridBoxes = document.querySelectorAll(".gridBox");
 
 
-
-
+//Randomize rgb colors
+function rgbColor() {
+    let blue = Math.floor(Math.random() * 255);
+    let red = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    newRGB = "rgb(" + blue +","+ red +","+ green + ")";
+    return newRGB;
+};
 
 
 //Calls functions when loading page

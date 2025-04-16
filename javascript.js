@@ -9,19 +9,6 @@
 
 
 
-//-----------Pseudocode--------------//
-
-
-// Create a function that creates a grid based on a number from 1-100
-    //Create a griv value variable -----CHECK
-    //for loop to create a grid of divs -----CHECK
-    //The boxes should dinamically wrap based on value
-
-//Create a button
-//Add an event listener to trigger a prompt asking taking a number 1-100, then executing a grid function
- //---------------------------------------//
-
-
 //Main container of the page
 const mainContainer = document.querySelector(".mainContainer");
 
@@ -41,7 +28,6 @@ const gridButton = document.createElement("button");
 buttonContainer.appendChild(gridButton);
 mainContainer.appendChild(buttonContainer);
 
-
 //Container for the grid
 const gridContainer = document.createElement("div");
 gridContainer.classList.add("gridContainer");
@@ -49,15 +35,17 @@ gridContainer.classList.add("gridContainer");
 mainContainer.appendChild(gridContainer);
  
 
-
-
-//Grid size value
-// let value = 3; //Grid 3x3 which is 9 squares
-
 //Function created boxes based on value x value
 function createGrid(userInput){
+    
     const container = document.querySelector(".gridContainer");
 
+    //Adjusts the grid container dimensions based on the userInput value
+    let boxSize = 30;
+    container.style.width = `${boxSize * userInput}px`;
+    container.style.height = `${boxSize * userInput}px`;
+
+    //Loop to create a grid of divs
     let gridSize = userInput * userInput;
     for(i = 0; i < gridSize; i++) {
         //On each iteration, 9 boxes must be created or value * value
@@ -65,12 +53,32 @@ function createGrid(userInput){
             box.classList.add("gridBox");
         container.appendChild(box);
     }
+
+    //Mouse "Hover" effect coloring the boxes
+    const gridBoxes = document.querySelectorAll(".gridBox");
+    gridBoxes.forEach(box => {
+        box.addEventListener("mouseover", () => {
+            box.style.backgroundColor = "blue";
+        });
+    });
+
 }
 
+
+//Function to delete the grid
 function deleteGrid(){
     const gridBoxes = document.querySelectorAll(".gridBox");
         gridBoxes.forEach(box => box.remove());
 };
 
+
+const gridBoxes = document.querySelectorAll(".gridBox");
+
+
+
+
+
+
+//Calls functions when loading page
 createGrid(16);
     
